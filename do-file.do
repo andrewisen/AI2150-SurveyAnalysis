@@ -40,15 +40,20 @@ local 	dimList 			///
 		Fith_dimension 		///
 		Sixth_dimension		///
 
-local dimSd
-local dimP_value
-
 foreach dim in `dimList' { 
-	* ttest `dim' if `dim'!=., by(Renter_nonrenter) unequal // Welch's t-test - unequal variances
-	ttest `dim', by(Renter_nonrenter)
-	return list
-	local dimSd `dimSd' r(sd)
-	local dimP_value `dimP_value' r(p)
+	
+	ttest `dim', by(Renter_nonrenter) // Equal variances
+	* ttest `dim' if `dim'!=., by(Renter_nonrenter) unequal // Unequal variances - Welch's t-test - 
+
+	local	dimSd 			///
+			`dimSd' 		///
+			`r(sd)'			///
+			char(10)		///
+			
+	local 	dimP_value 		///
+			`dimP_value'	///
+			`r(p)'			///
+			char(10)
 	
 	/*
 	r(p l)	lower one-sided p-value
@@ -62,10 +67,21 @@ foreach dim in `dimList' {
 * How do you interpret a high mean value?
 
 sum
-di `dimSd'
 
 ** STEP 2
 * _3
 * What are the t-values for each of the dimensions comparing
-* those who became a resident of an apartment and those who didn«t?
+* those who became a resident of an apartment and those who didn´t?
 * Are there significant differences between the different groups?
+
+di `dimSd'
+di `dimP_value'
+local alpha = 0.05
+
+/*
+foreach p_value in `dimP_value'{
+	if `alpha'>`p_value' {
+		di "NULL"
+	}	
+}
+*/
