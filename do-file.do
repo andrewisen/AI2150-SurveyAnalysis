@@ -76,12 +76,16 @@ sum
 
 di `dimSd'
 di `dimP_value'
-local alpha = 0.05
 
-/*
-foreach p_value in `dimP_value'{
-	if `alpha'>`p_value' {
-		di "NULL"
-	}	
-}
+** N.B.
+/* 	I like to use the p-value (instead of the t-value).
+	Here's a suggestion on how to implement a simple comparasion.
+	local alpha = 0.05
+
+	foreach p_value in `dimP_value'{
+		if `alpha'>`p_value' {
+			di "Reject"
+		}
+	}
 */
+
