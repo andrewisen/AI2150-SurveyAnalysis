@@ -2,8 +2,8 @@
 Analysis of a survey
 ## Introduction
 
-During the course “Theory of Science and Research Methods”...<br>
-TODO
+This is the Stata analysis for the course “Theory of Science and Research Methods”<br>
+in the M.Sc. Real Estate and Construction Management.
 
 ## Get your copy
 ```
