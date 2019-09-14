@@ -7,5 +7,5 @@ TODO
 
 ## Get your copy
 ```
-	git clone https://github.com/andrewisen/AI2150-SurveyAnalysis.git
+git clone https://github.com/andrewisen/AI2150-SurveyAnalysis.git
 ```
